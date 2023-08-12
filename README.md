@@ -1,0 +1,2 @@
+# try_fastapi
+FastAPIを使ったWebアプリケーションの練習用リポジトリです。
