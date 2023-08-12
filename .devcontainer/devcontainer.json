@@ -1,0 +1,53 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/python
+{
+	"name": "Python 3",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/git:1": {},
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/devcontainers-contrib/features/fd:1": {},
+		"ghcr.io/devcontainers-contrib/features/fzf:1": {},
+		"ghcr.io/devcontainers-contrib/features/ripgrep:1": {},
+		"ghcr.io/devcontainers-contrib/features/ruff:1": {},
+		"ghcr.io/eitsupi/devcontainer-features/jq-likes:1": {},
+		"ghcr.io/guiyomh/features/vim:0": {},
+		"ghcr.io/jungaretti/features/ripgrep:1": {},
+		"ghcr.io/christophermacgown/devcontainer-features/mcfly:1": {},
+	},
+	"extensions": [
+		"ms-python.python",
+		"ms-python.vscode-pylance",
+		"github.copilot",
+		"github.copilot-chat",
+		"njpwerner.autodocstring",
+		"hookyqr.beautify",
+		"wmaurer.change-case",
+		"streetsidesoftware.code-spell-checker",
+		"ms-azuretools.vscode-docker",
+		"donjayamanne.githistory",
+		"eamodio.gitlens",
+		"oderwat.indent-rainbow",
+		"shd101wyy.markdown-preview-enhanced",
+		"DavidAnson.vscode-markdownlint",
+		"christian-kohler.path-intellisense",
+		"shardulm94.trailing-spaces",
+		"ICS.japanese-proofreading",
+		"sleistner.vscode-fileutils",
+		"ms-python.black-formatter",
+	],
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"mounts": [
+		"source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.bash_history,type=bind,consistency=cached"
+	],
+	"postCreateCommand": "echo 'export HISTSIZE=10000' >> /home/vscode/.bashrc && echo 'export HISTFILESIZE=10000' >> /home/vscode/.bashrc"
+	// Configure tool-specific properties.
+	// "customizations": {},
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
