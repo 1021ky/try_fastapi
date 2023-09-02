@@ -1,0 +1,18 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: ./.devcontainer/Dockerfile_python
+    ports:
+      - 8000:8000 # ホストマシンのポート 8000 を、docker 内のポート 8000 に 接続する
+    volumes:
+      - ..:/opt
+    environment:
+      - WATCHFILES_FORCE_POLLING=true
+  mysql:
+    image: mysql:8.1
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=developer
