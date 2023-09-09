@@ -48,3 +48,15 @@ Mockを分けて作らなくてもエンドポイントを定義して、レス�
 ルーターとして定義している関数の引数の型ヒントとして、モデルを指定することで、リクエストのモデルを定義できる。
 
 リクエストのモデルでは、DBとのORMを
+
+### その他気になったことメモ
+
+cookie使いたい場合は？
+<https://fastapi.tiangolo.com/ja/tutorial/cookie-params/>
+cookie用のクラスがある。
+あとは、ルーターでセット。
+
+datadog apm使いたい
+<https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi>
+
+専用のモジュールがあるので、それを使える。
