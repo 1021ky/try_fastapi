@@ -6,6 +6,7 @@
 	"workspaceFolder": "/opt",
 	"dockerComposeFile": "docker-compose.yml",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"remoteUser": "vscode",
 	"features": {
 		"ghcr.io/devcontainers/features/git:1": {},
 		"ghcr.io/devcontainers/features/github-cli:1": {},
@@ -47,7 +48,6 @@
 			"source=${localEnv:HOME}/.zsh_history,target=/home/vscode/.bash_history,type=bind,consistency=cached",
 			"source=${localWorkspaceFolder},target=/opt,type=bind,consistency=cached"
 		],
-		"remoteUser": "vscode",
 		"postCreateCommand": [
 			"echo 'export HISTSIZE=10000' >> /home/vscode/.bashrc",
 			"echo 'export HISTFILESIZE=10000' >> /home/vscode/.bashrc",
