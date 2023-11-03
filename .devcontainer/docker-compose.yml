@@ -12,6 +12,7 @@ services:
       - WATCHFILES_FORCE_POLLING=true
   mysql:
     image: mysql:8.1
+    platform: linux/x86_64 # Macでもうごくように
     ports:
       - "3306:3306"
     environment:
