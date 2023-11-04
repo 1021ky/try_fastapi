@@ -30,7 +30,10 @@ async def update_task(
 
 @router.delete("/tasks/{task_id}")
 async def delete_task():
-    pass
+    task = task_crud.get_task(db, task_id=task_id)
+    if task is None:
+        raise HTTPException(status_code=404, detail="Task not found")
+    return task_crud.delete_task(db, original=task)
 
 
 @router.post("/tasks", response_model=task_schema.TaskCreateResponse)
