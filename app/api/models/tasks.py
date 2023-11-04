@@ -1,6 +1,7 @@
-from api.db import Base
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+
+from app.api.db import Base
 
 
 class Task(Base):
