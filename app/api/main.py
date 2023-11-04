@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.api.routers import task, done
+from app.api.routers import done, task
 
 app = FastAPI()
 app.include_router(task.router)

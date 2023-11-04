@@ -61,6 +61,21 @@ python
 'socket mysql:3306'
 ```
 
+migrate_db.pyでDBのマイグレーションを行ったあと、テーブルスキーマが期待通りできているか、pythonインタプリタで確認した。
+
+```shell
+>>> with con.cursor() as cursor:
+...     cursor.execute("SHOW TABLES")
+...     tables = cursor.fetchall()
+...     for table in tables:
+...             print(table[0])
+...
+2
+dones
+tasks
+```
+
+
 ### その他気になったことメモ
 
 cookie使いたい場合は？
