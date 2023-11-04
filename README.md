@@ -47,7 +47,19 @@ Mockを分けて作らなくてもエンドポイントを定義して、レス�
 リクエストもモデルを定義する
 ルーターとして定義している関数の引数の型ヒントとして、モデルを指定することで、リクエストのモデルを定義できる。
 
-リクエストのモデルでは、DBとのORMを
+リクエストのモデルでは、DBとのORMを設定できる
+
+###　DBとの接続
+
+本書で使っているpymysqlでは、pythonインタプリタで接続をためせた
+
+```shell
+poetry shell
+python
+>>> con = pymysql.connect(user="root", host="mysql", database="demo",port=3306, passwd="developer")
+>>> con.get_host_info()
+'socket mysql:3306'
+```
 
 ### その他気になったことメモ
 
@@ -60,3 +72,4 @@ datadog apm使いたい
 <https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi>
 
 専用のモジュールがあるので、それを使える。
+

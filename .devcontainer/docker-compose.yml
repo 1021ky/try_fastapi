@@ -14,6 +14,13 @@ services:
     image: mysql:8.1
     platform: linux/x86_64 # Macでもうごくように
     ports:
-      - "3306:3306"
+      - "33306:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=developer
+      MYSQL_ROOT_PASSWORD: "developer"
+      MYSQL_DATABASE: "demo" # 初期データベースとして demo を設定
+      TZ: "Asia/Tokyo" # タイムゾーンを日本時間に設定 volumes:
+    volumes:
+      - mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password # MySQL8.0ではデフォルトが"caching_sha2_password"で、ドライバが非対応のため変更
+volumes:
+  mysql_data:
