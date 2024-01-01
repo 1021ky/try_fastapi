@@ -75,16 +75,36 @@ dones
 tasks
 ```
 
+### 非同期DB接続
+
+ライブラリをpymysql->aiomysqlに変更するだけで、非同期になる。
+ただ、poetryでpoetry add aiomysqlだけだと、aiomysqlの依存ライブラリがインストールされない。
+```zsh
+ValueError: the greenlet library is required to use this function. No module named 'greenlet'
+```
+https://github.com/python-poetry/poetry/issues/5429が関連してそうで
+`sqlalchemy = {extras = ["asyncio"], version = "^2.0.23"}`とpyproject.tomに追記すると動いた。`
+
+コードには適宜async awaitを入れるだけで動いた。
+
 
 ### その他気になったことメモ
 
-cookie使いたい場合は？
+#### cookie使いたい場合は？
 <https://fastapi.tiangolo.com/ja/tutorial/cookie-params/>
 cookie用のクラスがある。
 あとは、ルーターでセット。
 
-datadog apm使いたい
+#### datadog apm使いたい
 <https://ddtrace.readthedocs.io/en/stable/integrations.html#fastapi>
 
 専用のモジュールがあるので、それを使える。
+
+#### ログを使いたい
+
+標準のloggingモジュールを使う
+
+#### フレームワークとビジネスロジックを分けたい
+
+<https://fastapi.tiangolo.com/ja/advanced/using-dependencies/>
 

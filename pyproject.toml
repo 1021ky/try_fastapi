@@ -9,8 +9,9 @@ packages = [{include = "app"}]
 python = "^3.11"
 fastapi = "^0.91.0"
 uvicorn = {extras = ["standard"], version = "^0.20.0"}
-sqlalchemy = "^2.0.23"
+sqlalchemy = {extras = ["asyncio"], version = "^2.0.23"}
 pymysql = "^1.1.0"
+aiomysql = "^0.2.0"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.10.1"
